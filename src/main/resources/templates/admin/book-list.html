@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html th:replace="layout/adminLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+  <div class="container">
+    <div class="row">
+      <div class="col">
+        <div class="card">
+          <div class="card-header">
+            <h3>Book List</h3>
+          </div>
+          <div class="card-body">
+            <table class="table table-striped">
+              <thead>
+              <tr>
+                <th>Title</th>
+                <th>Year Published</th>
+                <th>Publisher</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Genre</th>
+                <th>Img Url</th>
+                <th>Description</th>
+              </tr>
+              </thead>
+              <tbody>
+              <tr th:each="book : ${books}">
+                <td th:text="${book.id}"></td>
+                <td th:text="${book.title}"></td>
+                <td th:text="${book.yearPublished}"></td>
+                <td th:text="${book.publisher}"></td>
+                <td th:text="${book.price}"></td>
+                <td th:text="${book.quantity}"></td>
+                <td th:text="${book.genre}"></td>
+                <td th:text="${book.imgUrl}"></td>
+                <td th:text="${book.description}"></td>
+              </tr>
+              </tbody>
+            </table>
+          </div>
+          <div class="card-footer">
+            <a th:href="@{/admin/book-form}" class="btn btn-primary btn-block">New Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+</body>
+</html>

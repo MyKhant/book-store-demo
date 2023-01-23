@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html th:replace="layout/adminLayout :: layout(~{::main})" xmlns:th="http://www.thymeleaf.org">
+
+<body>
+<main role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header">
+                        <h3>Book Form</h3>
+                    </div>
+                    <div class="card-body">
+                        <form action="#" method="post" th:action="@{/admin/book-form}" th:object="${book}">
+                            <div class="form-group">
+                                <label for="title">Title</label>
+                                <input class="form-control" id="title" th:field="*{title}" type="text">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="yearpublished">Year Published</label>
+                                <input class="form-control" id="yearpublished" th:field="*{yearPublished}" type="date">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="publisher">Publisher</label>
+                                <input class="form-control" id="publisher" th:field="*{publisher}" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="price">Price</label>
+                                <input class="form-control" id="price" step="any" th:field="*{price}" type="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="quantity">Quantity</label>
+                                <input class="form-control" id="quantity" th:field="*{quantity}" type="number">
+                            </div>
+                            <div class="form-group">
+                                <label for="genre">Genre</label>
+                                <input class="form-control" id="genre" th:field="*{genre}" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="imgurl">Img Url</label>
+                                <input class="form-control" id="imgurl" th:field="*{imgUrl}" type="text">
+                            </div>
+                            <div class="form-group">
+                                <label for="description">Description</label>
+                                <textarea class="form-control" cols="30" id="description" rows="3"
+                                          th:field="*{description}">
+                                </textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="author">Author</label>
+                                <select class="form-control" th:field="*{author.id}" id="author">
+                                    <option th:each="au : ${authors}" th:text="${au.name}" th:value="${au.id}"></option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="category">Category</label>
+                                <select class="form-control" th:field="*{category.id}" id="category">
+                                    <option th:each="cat : ${categories}" th:text="${cat.name}" th:value="${cat.id}"></option>
+                                </select>
+                            </div>
+                            <input type="submit" class="btn btn-primary btn-lg" value="Save Book">
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+  </div>
+</main>
+</body>
+</html>
