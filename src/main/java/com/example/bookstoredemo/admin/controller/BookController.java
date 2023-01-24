@@ -57,6 +57,12 @@ public class BookController {
     }
     //https://source.unsplash.com/366x200/?nature,water
     //https://source.unsplash.com/366x200/?book
+    //https://source.unsplash.com/366x200/?ocean
+    //https://source.unsplash.com/366x200/?desert
+    //https://source.unsplash.com/366x200/?sexygirls
+    //https://source.unsplash.com/366x200/?cutegirls
+    //https://source.unsplash.com/366x200/?flowers
+
     @GetMapping("/book/all")
     public String listAllBooks(Model model){
         model.addAttribute("books",bookDao.findAll());

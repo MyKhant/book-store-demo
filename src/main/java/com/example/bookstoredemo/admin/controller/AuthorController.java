@@ -42,4 +42,5 @@ public class AuthorController {
         model.addAttribute("authors", authorDao.findAll());
         return "admin/author-list";
     }
+
 }

@@ -8,6 +8,6 @@ public class TestController {
 
     @GetMapping(value = {"/","/home"})
     public String layoutTest(){
-        return "layout/adminLayout";
+        return "forward:/admin/book/all";
     }
 }

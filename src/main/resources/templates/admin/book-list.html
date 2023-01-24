@@ -3,53 +3,48 @@
 
 <body>
 <main role="main">
-  <div class="container my-5">
-    <div class="row">
-      <div class="col">
-        <div class="card">
-          <div class="card-header">
-            <h3>Book List</h3>
-          </div>
-          <div class="card-body">
-            <table class="table table-striped">
-              <thead class="bg-danger text-white">
-              <tr>
-                <th>Title</th>
-                <th>Year Published</th>
-                <th>Publisher</th>
-                <th>Price</th>
-                <th>Quantity</th>
-                <th>Genre</th>
-                <th>Img Url</th>
-                <th>Description</th>
-                <th>Category</th>
-                <th>Author</th>
-              </tr>
-              </thead>
-              <tbody>
-              <tr th:each="book : ${books}">
-                <td th:text="${book.id}"></td>
-                <td th:text="${book.title}"></td>
-                <td th:text="${book.yearPublished}"></td>
-                <td th:text="${book.publisher}"></td>
-                <td th:text="${book.price}"></td>
-                <td th:text="${book.quantity}"></td>
-                <td th:text="${book.genre}"></td>
-                <td th:text="${book.imgUrl}"></td>
-                <td th:text="${book.description}"></td>
-                <td th:text="${book.category}"></td>
-                <td th:text="${book.author}"></td>
-              </tr>
-              </tbody>
-            </table>
-          </div>
-          <div class="card-footer">
-            <a th:href="@{/admin/book-form}" class="btn btn-primary btn-block">New Book</a>
-          </div>
+    <div class="container my-5">
+        <div class="row">
+            <div class="col">
+                <div class="card">
+                    <div class="card-header bg-warning">
+                        <h3>Book List</h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive-sm">
+                            <table class="table table-striped">
+                                <thead class="bg-danger text-white">
+                                <tr>
+                                    <th>Id</th>
+                                    <th>Title</th>
+                                    <th>YearPublished</th>
+                                    <th>Price</th>
+                                    <th>Quantity</th>
+                                    <th>Category</th>
+                                    <th>Author</th>
+                                </tr>
+                                </thead>
+                                <tbody>
+                                <tr th:each="bo : ${books}">
+                                    <td th:text="${bo.id}"></td>
+                                    <td th:text="${bo.title}"></td>
+                                    <td th:text="${bo.yearPublished}"></td>
+                                    <td th:text="${'$'+bo.price}"></td>
+                                    <td th:text="${bo.quantity}"></td>
+                                    <td th:text="${bo.category.categoryName}"></td>
+                                    <td th:text="${bo.author.name}"></td>
+                                </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="card-footer">
+                    <a th:href="@{/admin/book-form}" class="btn btn-primary btn-block">New Book</a>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </main>
 </body>
 </html>
