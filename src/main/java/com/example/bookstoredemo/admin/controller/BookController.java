@@ -62,6 +62,7 @@ public class BookController {
     //https://source.unsplash.com/366x200/?sexygirls
     //https://source.unsplash.com/366x200/?cutegirls
     //https://source.unsplash.com/366x200/?flowers
+    //https://source.unsplash.com/366x200/?library
 
     @GetMapping("/book/all")
     public String listAllBooks(Model model){
