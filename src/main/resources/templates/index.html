@@ -10,41 +10,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 <body>
-<nav class="navbar navbar-expand-md navbar-dark">
-    <a href="#" class="navbar-brand">
-        <h3 class="mb-0">Book Store</h3>
-    </a>
-    <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNav">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="myNav">
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-                <a href="#" class="nav-link">Home</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">About</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Explore</a>
-            </li>
-            <li class="nav-item">
-                <a href="#" class="nav-link">Contact</a>
-            </li>
-        </ul>
-    </div>
-</nav>
 
-
-<section id="showcase" class="d-flex justify-content-center align-items-center">
-    <div id="overlay"></div>
-    <div id="header" class="container text-white text-center">
-        <h3 class="display-4 mb-0">MODERN BUYING BOOK</h3>
-        <h1 class="display-1">BOOK STORE</h1>
-        <p class="lead d-none d-md-block">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facere, nostrum.</p>
-        <button id="book" class="btn btn-lg btn-primary px-5">Book Now</button>
-    </div>
-</section>
+<div th:replace="fragments/header.html :: headview"></div>
 
 <section id="experience">
     <div class="container mt-4 text-center">
@@ -127,6 +94,52 @@
 
     </div>
 </section>
+
+<section id="books">
+    <div class="container mt-4">
+        <h1 class="text-center">BEST SELLERS NOVELS</h1>
+        <div class="row my-3">
+            <div class="col-md-3">
+                <img th:src="${books[1].imgUrl}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-3">
+                <img th:src="${books[2].imgUrl}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-3">
+                <img th:src="${books[3].imgUrl}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-3">
+                <img th:src="${books[4].imgUrl}" class="img-fluid" alt="">
+            </div>
+        </div>
+        <div class="row my-3">
+            <div class="col-md-3">
+                <img th:src="${books[5].imgUrl}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-3">
+                <img th:src="${books[6].imgUrl}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-3">
+                <img th:src="${books[7].imgUrl}" class="img-fluid" alt="">
+            </div>
+            <div class="col-md-3">
+                <img th:src="${books[8].imgUrl}" class="img-fluid" alt="">
+            </div>
+        </div>
+    </div>
+</section>
+
+<section>
+    <div class="container text-center mt-5">
+        <h1 class="text-primary"><i class="fas fa-quote-left"></i></h1>
+        <blockquote>
+            <p class="lead">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur assumenda at cumque delectus exercitationem, facere harum laudantium mollitia natus, necessitatibus nobis nulla porro possimus praesentium reiciendis, rerum tenetur voluptatibus voluptatum.</p>
+            <footer class="blockquote-footer">Thomas Hardy</footer>
+        </blockquote>
+    </div>
+</section>
+
+<div th:replace="fragments/footer.html :: footerView"></div>
 
 <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
