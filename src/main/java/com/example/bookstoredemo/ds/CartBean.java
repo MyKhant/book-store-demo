@@ -36,7 +36,7 @@ public class CartBean {
         return bookDtoList.size();
     }
 
-    public void removeCart(BookDto bookDto){
+    public void removeBook(BookDto bookDto){
         bookDtoList.remove(bookDto);
     }
 }

@@ -42,4 +42,8 @@ public class CartService {
                 book.getAuthor()
         );
     }
+
+    public void removeFromCart(BookDto bookDto) {
+        cartBean.removeBook(bookDto);
+    }
 }
