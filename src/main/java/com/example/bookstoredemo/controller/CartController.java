@@ -22,20 +22,20 @@ public class CartController {
     private CartService cartService;
 
     @GetMapping("/add-to-cart")
-    public String addToCart(@RequestParam("id") int id){
+    public String addToCart(@RequestParam("id") int id) {
         cartService.addToCart(id);
 
-        return "redirect:/user/book?id="+id;
+        return "redirect:/user/book?id=" + id;
     }
 
     @GetMapping("/clear")
-    public String clearCart(){
+    public String clearCart() {
         cartService.clearCart();
         return "redirect:/cart/view";
     }
 
     @GetMapping("/delete")
-    public String removeFromCart(@RequestParam("id")int id){
+    public String removeFromCart(@RequestParam("id") int id) {
         cartService.removeFromCart(findBookDtoById(id));
         return "redirect:/cart/view";
     }
@@ -51,44 +51,44 @@ public class CartController {
     private List<Integer> bookQuantityList = new ArrayList<>();
 
     @GetMapping("/register-form")
-    public String registerForm(Model model){
-        model.addAttribute("customer",new Customer());
+    public String registerForm(Model model) {
+        model.addAttribute("customer", new Customer());
         return "register";
     }
 
     @PostMapping("/register")
-    public String saveRegisterCustomer(@Valid Customer customer, BindingResult result){
-        if (result.hasErrors()){
+    public String saveRegisterCustomer(@Valid Customer customer, BindingResult result) {
+        if (result.hasErrors()) {
             return "register";
         }
         Set<BookDto> carts = cartService.listCart();
         int index = 0;
-        for (BookDto bookDto:carts){
-            bookDto.setQuantity(bookQuantityList.get(index));
-            index ++;
+        for (BookDto bookDto : carts) {
+            bookDto.setOrderBookQuantity(bookQuantityList.get(index));
+            index++;
         }
-        System.out.println("Carts===================="+carts);
-        cartService.register(customer,carts);
+        System.out.println("Carts====================" + carts);
+        cartService.register(customer, carts);
 
         return "redirect:/login";
     }
 
     @PostMapping("/checkout")
-    public String checkout(BookDto bookDto){
+    public String checkout(BookDto bookDto) {
         this.bookQuantityList = bookDto.getItemList();
 //        System.out.println("===================="+bookQuantityList);
         return "redirect:/cart/register-form";
     }
 
     @GetMapping("/view")
-    public String viewCart(Model model){
-        model.addAttribute("bookDto",new BookDto());
-        model.addAttribute("carts",cartService.listCart());
+    public String viewCart(Model model) {
+        model.addAttribute("bookDto", new BookDto());
+        model.addAttribute("carts", cartService.listCart());
         return "cart-view";
     }
 
     @ModelAttribute("carts")
-    public Set<BookDto> bookDtoList(){
+    public Set<BookDto> bookDtoList() {
         return cartService.listCart();
     }
 }

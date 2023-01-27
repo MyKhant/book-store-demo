@@ -32,9 +32,11 @@ public class BookDto {
     private String description;
 
     private Category category;
+    private int orderBookQuantity;
     private List<Integer> itemList = new ArrayList<>();
 
     private Author author;
+
 
     @Override
     public boolean equals(Object o) {
@@ -75,6 +77,7 @@ public class BookDto {
                 ", publisher='" + publisher + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
+                ", orderBookQuantity" + orderBookQuantity +
                 '}';
     }
 }

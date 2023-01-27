@@ -4,6 +4,7 @@ import com.example.bookstoredemo.dao.BookDao;
 import com.example.bookstoredemo.ds.BookDto;
 import com.example.bookstoredemo.entity.Book;
 import com.example.bookstoredemo.entity.Customer;
+import com.example.bookstoredemo.service.CartService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -21,18 +22,22 @@ public class AccountController {
 
     @Autowired
     private BookDao bookDao;
+
+    @Autowired
+    private CartService cartService;
+
     @RequestMapping("/login")
-    public String login(){
+    public String login() {
         return "login";
     }
 
-    @GetMapping({"/","/home"})
-    public String home(){
+    @GetMapping({"/", "/home"})
+    public String home() {
         return "index";
     }
 
     @ModelAttribute("books")
-    public List<Book> listBooks(){
+    public List<Book> listBooks() {
         return bookDao.findAll();
     }
 }
