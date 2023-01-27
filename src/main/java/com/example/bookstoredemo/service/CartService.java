@@ -50,6 +50,10 @@ public class CartService {
         return cartBean.listAllCart();
     }
 
+    public List<OrderBook> listOrderBookByUserName(String name) {
+        return customerOrderBookDao.findOrderBookByCustomerName(name);
+    }
+
     public BookDto toDto(Book book) {
         return new BookDto(
                 book.getId(),
@@ -85,6 +89,7 @@ public class CartService {
         }
 
         customerOrderBookDao.save(customerOrderBook);
+        clearCart();
     }
 
     private OrderBook toOrderBook(BookDto bookDto) {
